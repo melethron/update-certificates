@@ -1,0 +1,15 @@
+- hosts: all
+  tasks:
+    - name: update certs in folder /data/certs
+      copy:
+        src: "{{ item }}"
+        dest: /data/certs
+        owner: root
+        group: root
+        mode: "0644"
+      with_fileglob:
+        - certs/*
+- hosts: nginx
+  tasks:
+    - name: restart local nginx
+      command: nginx -s reload

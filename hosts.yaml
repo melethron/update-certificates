@@ -1,0 +1,25 @@
+all:
+  hosts:
+    passbolt:
+      ansible_host:
+      ip:
+      access_ip:
+    nexus:
+      ansible_host:
+      ip:
+      access_ip:
+    keycloak:
+      ansible_host:
+      ip:
+      access_ip:
+    ipam:
+      ansible_host:
+      ip:
+      access_ip:
+  children:
+    docker:
+      passbolt:
+      nexus:
+      ipam:
+    nginx:
+      keycloak:
